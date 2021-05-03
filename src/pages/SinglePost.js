@@ -53,7 +53,7 @@ function SinglePost(props) {
   }
 
   let postMarkup;
-  if (loading && data) {
+  if (!data) {
     postMarkup = <p>Loading post..</p>;
   } else {
     const {
