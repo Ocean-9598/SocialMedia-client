@@ -23,15 +23,19 @@ function SinglePost(props) {
   const commentInputRef = useRef(null);
 
   const [comment, setComment] = useState('');
-
+  let getPost;
   const {
-    data :{ getPost },
+    data,
     loading
   } = useQuery(FETCH_POST_QUERY, {
     variables: {
       postId
     }
   });
+  if(data)
+  {
+    getPost  = data.getPost; 
+  }
 
   const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
     update() {
