@@ -38,7 +38,7 @@ function Home() {
           ) : (
             <Transition.Group>
                 {
-                    posts && posts.map(post => (
+                    getposts && getposts.map(post => (
                         <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
                             <PostCard post={post} />
                       </Grid.Column> 
