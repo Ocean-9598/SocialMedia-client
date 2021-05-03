@@ -10,11 +10,15 @@ import { FETCH_POSTS_QUERY } from '../util/graphql';
 
 function Home() {
     const { user } = useContext(AuthContext)
-    const { 
-        loading, 
-        data:{getPosts : posts} 
+    let getposts = undefined;
+    const {
+        loading,
+        data
     } = useQuery(FETCH_POSTS_QUERY);
-
+    if(data)
+    {
+        getposts = data.getPosts;
+    }
 
     return (
         <Grid columns={4} >
