@@ -25,7 +25,8 @@ function SinglePost(props) {
   const [comment, setComment] = useState('');
 
   const {
-    data :{ getPost }
+    data :{ getPost },
+    loading
   } = useQuery(FETCH_POST_QUERY, {
     variables: {
       postId
@@ -48,7 +49,7 @@ function SinglePost(props) {
   }
 
   let postMarkup;
-  if (!getPost) {
+  if (loading && data) {
     postMarkup = <p>Loading post..</p>;
   } else {
     const {
